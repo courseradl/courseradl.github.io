@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- Primary Meta Tags -->
-  <title>Coursera DL — High-Performance Desktop Course Archiver & Backup Tool</title>
-  <meta name="title" content="Coursera DL — High-Performance Desktop Course Archiver & Backup Tool">
-  <meta name="description" content="A modern, lightweight cross-platform desktop application built with Tauri v2, Rust, and React. Archive your enrolled Coursera courses, HD videos, lecture notes, and materials for offline personal study with complete local privacy.">
-  <meta name="keywords" content="coursera downloader, coursera dl, coursera-dl-gui, tauri coursera, course archiver, download coursera videos, offline learning, coursera backup, rust downloader">
+  <title>Coursera DL — High-Performance Coursera Course Downloader</title>
+  <meta name="title" content="Coursera DL — High-Performance Coursera Course Downloader">
+  <meta name="description" content="Download Coursera courses, specializations, high-quality videos, PDFs, and subtitles for offline learning. A lightweight desktop app for Windows, Mac, and Linux.">
+  <meta name="keywords" content="coursera downloader, how to download coursera courses, coursera course downloader, download coursera videos with subtitles, coursera video downloader for windows mac, coursera dl gui, tauri coursera downloader, offline coursera backup">
   <meta name="author" content="Coursera DL Community">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://courseradl.github.io/">
@@ -17,40 +17,83 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://courseradl.github.io/">
   <meta property="og:site_name" content="Coursera DL">
-  <meta property="og:title" content="Coursera DL — High-Performance Desktop Course Archiver">
-  <meta property="og:description" content="Cross-platform desktop application powered by Rust & Tauri for personal, offline archiving of your enrolled Coursera courses.">
+  <meta property="og:title" content="Coursera DL — High-Performance Coursera Course Downloader">
+  <meta property="og:description" content="Download Coursera courses, specializations, high-quality videos, PDFs, and subtitles for offline learning. Modern desktop app for Windows, Mac, and Linux.">
   <meta property="og:image" content="https://courseradl.github.io/assets/logo.png">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://courseradl.github.io/">
-  <meta property="twitter:title" content="Coursera DL — High-Performance Desktop Course Archiver">
-  <meta property="twitter:description" content="Cross-platform desktop application powered by Rust & Tauri for personal, offline archiving of your enrolled Coursera courses.">
+  <meta property="twitter:title" content="Coursera DL — High-Performance Coursera Course Downloader">
+  <meta property="twitter:description" content="Download Coursera courses, specializations, high-quality videos, PDFs, and subtitles for offline learning. Modern desktop app for Windows, Mac, and Linux.">
   <meta property="twitter:image" content="https://courseradl.github.io/assets/logo.png">
 
-  <!-- Structured Data (JSON-LD) for SEO Rich Snippets -->
+  <!-- Structured Data (JSON-LD) for SEO & GEO AI Rich Snippets -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Coursera DL",
-    "operatingSystem": "Windows, macOS, Linux",
-    "applicationCategory": "EducationalApplication",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "description": "A high-performance, open-source desktop application built with Tauri v2, Rust, and React to archive enrolled Coursera courses, HD videos, lecture slides, and multilingual subtitles for offline personal study.",
-    "url": "https://courseradl.github.io/",
-    "downloadUrl": "https://github.com/courseradl/coursera-dl-gui/releases/latest",
-    "softwareVersion": "1.0.0",
-    "license": "https://www.gnu.org/licenses/gpl-3.0.html",
-    "author": {
-      "@type": "Organization",
-      "name": "Coursera DL Community",
-      "url": "https://github.com/courseradl"
-    }
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://courseradl.github.io/#software",
+        "name": "Coursera DL",
+        "operatingSystem": "Windows, macOS, Linux",
+        "applicationCategory": "EducationalApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "A high-performance, open-source desktop application built with Tauri v2, Rust, and React to download and archive enrolled Coursera courses, HD videos, lecture slides, and multilingual subtitles for offline personal study.",
+        "url": "https://courseradl.github.io/",
+        "downloadUrl": "https://github.com/courseradl/coursera-dl-gui/releases/latest",
+        "softwareVersion": "1.0.0",
+        "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+        "author": {
+          "@type": "Organization",
+          "name": "Coursera DL Community",
+          "url": "https://github.com/courseradl"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://courseradl.github.io/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can I download Coursera videos in 1080p with subtitles?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Coursera DL downloads videos in highest available resolutions (720p/1080p MP4) and captures multilingual VTT/SRT subtitles along with lecture notes and course PDF slides."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Coursera DL safe to use with my personal account?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Authentication is handled 100% locally on your computer using your browser session cookie (CAUTH). No login credentials, cookies, or personal telemetry are ever transmitted to third-party servers."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does Coursera DL compare to the legacy python coursera-dl CLI?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Legacy python-based CLI tools frequently break due to obsolete API parsers, require complex Python terminal setups, and lack batch specialization management. Coursera DL provides a native, modern Rust/Tauri desktop GUI with 1-click batch downloads and automatic module syllabus discovery."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Coursera DL support batch downloading full specializations?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Coursera DL automatically identifies all sub-courses within an enrolled Specialization or Professional Certificate and allows one-click batch downloading of the complete syllabus."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
 
@@ -671,6 +714,90 @@
       line-height: 1.6;
     }
 
+    /* Feature Pills / Supported Formats Bar */
+    .formats-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 28px 0 34px;
+    }
+    .format-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #374151;
+      box-shadow: var(--shadow-sm);
+    }
+    .format-pill svg {
+      color: var(--primary);
+    }
+
+    /* FAQ Section */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .faq-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+    .faq-card:hover {
+      border-color: #CBD5E1;
+      box-shadow: var(--shadow-md);
+    }
+    .faq-q {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .faq-a {
+      color: #4B5563;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* Troubleshooting Section */
+    .troubleshoot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+    .troubleshoot-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .troubleshoot-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 6px;
+    }
+    .troubleshoot-desc {
+      color: #4B5563;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
     /* Footer */
     footer {
       background: #FFFFFF;
@@ -721,8 +848,9 @@
             <li><a href="#features">Features</a></li>
             <li><a href="#flow">How It Works</a></li>
             <li><a href="#downloads">Downloads</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#troubleshooting">Troubleshooting</a></li>
             <li><a href="#development">Setup</a></li>
-            <li><a href="#disclaimer">Legal</a></li>
           </ul>
         </nav>
         <a href="https://github.com/courseradl/coursera-dl-gui" target="_blank" rel="noopener noreferrer" class="btn-github">
@@ -743,12 +871,32 @@
           ⚡ Native Rust Core & Tauri v2 Desktop Engine
         </div>
         <h1 class="hero-title">
-          Personal Coursera Archiving, <br>
-          <span>Modernized for Desktop.</span>
+          Coursera Course Downloader <br>
+          <span>& Desktop Backup Tool.</span>
         </h1>
         <p class="hero-subtitle">
-          A high-performance, lightweight personal archiving utility replacing legacy CLI scripts. Preserve courses, specializations, video segments, and reading materials on Windows, macOS, and Linux.
+          Download Coursera courses for offline use with a high-performance desktop app. Replace broken legacy CLI scripts and save 720p/1080p videos, PDF lecture notes, and subtitles on Windows, Mac, and Linux.
         </p>
+
+        <!-- Supported Formats & Capabilities Bar for Quick Discovery & AI GEO -->
+        <div class="formats-bar">
+          <div class="format-pill">
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            1080p & 720p MP4 Videos
+          </div>
+          <div class="format-pill">
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            Multilingual VTT/SRT Subtitles
+          </div>
+          <div class="format-pill">
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            PDF Slides & Readings
+          </div>
+          <div class="format-pill">
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            Batch Specializations
+          </div>
+        </div>
         <div class="hero-actions">
           <a href="https://github.com/courseradl/coursera-dl-gui/releases/latest" class="btn-primary" target="_blank" rel="noopener noreferrer">
             <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -990,6 +1138,81 @@
               </tr>
             </tbody>
           </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Frequently Asked Questions (FAQ) for GEO & High-Intent Search -->
+    <section id="faq" style="background: #FFFFFF; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-desc">Common questions about video resolutions, account privacy, and batch archiving.</p>
+        </div>
+
+        <div class="faq-grid">
+          <div class="faq-card">
+            <h3 class="faq-q">
+              <span>❓</span> Can I download Coursera videos in 1080p and 720p with subtitles?
+            </h3>
+            <p class="faq-a">
+              Yes. Coursera DL automatically parses the highest available MP4 stream (1080p/720p) and downloads localized subtitles (.vtt/.srt), lecture slides, and supplementary PDFs directly to your specified folder.
+            </p>
+          </div>
+
+          <div class="faq-card">
+            <h3 class="faq-q">
+              <span>🔒</span> Is Coursera DL safe to use with my personal account?
+            </h3>
+            <p class="faq-a">
+              Yes. Authentication happens entirely locally on your machine using your browser's existing <code>CAUTH</code> session cookie. No passwords, tokens, or telemetry data are ever stored or sent to remote servers.
+            </p>
+          </div>
+
+          <div class="faq-card">
+            <h3 class="faq-q">
+              <span>🚀</span> How does this compare to the legacy Python coursera-dl CLI?
+            </h3>
+            <p class="faq-a">
+              Legacy Python CLI scripts often suffer from broken scrapers, dependency conflicts, and terminal complexity. Coursera DL is built with a modern Rust backend and Tauri v2 desktop GUI with automatic module discovery and resilient batch downloads.
+            </p>
+          </div>
+
+          <div class="faq-card">
+            <h3 class="faq-q">
+              <span>🎓</span> Can I download entire Specializations and Professional Certificates?
+            </h3>
+            <p class="faq-a">
+              Yes. When enrolled in a Specialization, Coursera DL detects all nested courses and syllabus modules, enabling single-click batch enrollment and batch downloading.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Common Troubleshooting & Solutions -->
+    <section id="troubleshooting">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Troubleshooting & Common Issues</h2>
+          <p class="section-desc">Quick solutions to resolve session cookie expiration and network timeouts.</p>
+        </div>
+
+        <div class="troubleshoot-grid">
+          <div class="troubleshoot-card">
+            <h3 class="troubleshoot-title">🔑 Expired Session Cookie (CAUTH)</h3>
+            <p class="troubleshoot-desc">If authentication fails or course catalogs appear empty, your Coursera web session has expired. Log in to Coursera in your browser, copy a fresh <code>CAUTH</code> cookie value, and paste it into the app.</p>
+          </div>
+
+          <div class="troubleshoot-card">
+            <h3 class="troubleshoot-title">⚡ Download Interrupted / Network Reset</h3>
+            <p class="troubleshoot-desc">Coursera DL supports automatic chunk resuming. Simply restart the course download to resume from where the network connection dropped without re-downloading completed videos.</p>
+          </div>
+
+          <div class="troubleshoot-card">
+            <h3 class="troubleshoot-title">📂 Read-Only Output Folder Permissions</h3>
+            <p class="troubleshoot-desc">Ensure the destination folder has write permissions enabled for your user account, especially on external hard drives or network-attached storage (NAS).</p>
+          </div>
         </div>
       </div>
     </section>
