@@ -57,10 +57,14 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/favicon.png">
 
-  <!-- Fonts (Matches app typography: Source Sans 3 + Google Sans Code) -->
+  <!-- Optimized Fonts (Asynchronous & non-render-blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap">
+  </noscript>
 
   <style>
     :root {
@@ -400,17 +404,17 @@
       gap: 6px;
       background: #ECFDF5;
       border: 1px solid #A7F3D0;
-      color: #059669;
+      color: #047857;
       padding: 3px 8px;
       border-radius: 9999px;
       font-size: 0.75rem;
-      font-weight: 600;
+      font-weight: 700;
     }
     .pulse-dot {
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: #10B981;
+      background: #059669;
     }
     .course-cards-row {
       display: grid;
@@ -641,8 +645,8 @@
       font-size: 0.88rem;
       line-height: 1.7;
     }
-    .term-prompt { color: #60A5FA; margin-right: 10px; user-select: none; }
-    .term-comment { color: #6B7280; font-style: italic; }
+    .term-prompt { color: #93C5FD; margin-right: 10px; user-select: none; }
+    .term-comment { color: #9CA3AF; font-style: italic; }
 
     /* Disclaimer Box */
     .disclaimer-card {
@@ -656,13 +660,13 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      color: #DC2626;
+      color: #B91C1C;
       font-weight: 700;
       font-size: 1.05rem;
       margin-bottom: 10px;
     }
     .disclaimer-body {
-      color: #4B5563;
+      color: #374151;
       font-size: 0.86rem;
       line-height: 1.6;
     }
@@ -674,7 +678,7 @@
       padding: 36px 0;
       margin-top: 60px;
       text-align: center;
-      color: var(--muted-foreground);
+      color: #4B5563;
       font-size: 0.88rem;
     }
     footer a {
@@ -706,7 +710,10 @@
     <div class="container">
       <div class="nav-wrapper">
         <a href="#" class="brand" aria-label="Coursera DL Home">
-          <img src="assets/logo.png" alt="Coursera DL Logo" width="36" height="36">
+          <picture>
+            <source srcset="assets/logo-64.webp" type="image/webp">
+            <img src="assets/logo-64.png" alt="Coursera DL Logo" width="36" height="36" fetchpriority="high">
+          </picture>
           <span>Coursera DL</span>
         </a>
         <nav>
@@ -767,7 +774,10 @@
             <div class="window-sidebar">
               <div class="sidebar-menu">
                 <div style="display:flex; align-items:center; gap:8px; margin-bottom: 14px; padding: 4px;">
-                  <img src="assets/logo.png" style="width:24px; height:24px; border-radius:6px;" alt="Icon">
+                  <picture>
+                    <source srcset="assets/logo-64.webp" type="image/webp">
+                    <img src="assets/logo-64.png" style="width:24px; height:24px; border-radius:6px;" alt="Icon" width="24" height="24">
+                  </picture>
                   <span style="font-weight:700; font-size: 0.88rem; color: var(--foreground);">Coursera DL</span>
                 </div>
                 <div class="menu-item active">🎓 My Courses</div>
@@ -788,7 +798,7 @@
             <div class="window-content">
               <div class="content-header">
                 <div>
-                  <h3 style="font-size: 1rem; font-weight: 700; color: #111827;">My Enrolled Courses</h3>
+                  <div style="font-size: 1rem; font-weight: 700; color: #111827; margin-bottom: 2px;">My Enrolled Courses</div>
                   <p style="font-size: 0.78rem; color: var(--muted-foreground);">Live catalog synchronized via Stale-While-Revalidate caching</p>
                 </div>
                 <div class="status-badge">
@@ -1038,7 +1048,7 @@
   <footer>
     <div class="container">
       <p><strong>Coursera DL</strong> is an open-source personal utility licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noopener noreferrer">GNU GPL v3.0</a>.</p>
-      <p style="margin-top: 4px; font-size: 0.8rem; color: #9CA3AF;">Maintained by the community under organization <a href="https://github.com/courseradl" target="_blank" rel="noopener noreferrer">courseradl</a></p>
+      <p style="margin-top: 6px; font-size: 0.85rem; color: #4B5563;">Maintained by the community under organization <a href="https://github.com/courseradl" target="_blank" rel="noopener noreferrer">courseradl</a></p>
     </div>
   </footer>
 
