@@ -745,6 +745,49 @@
       color: var(--primary);
     }
 
+    /* Technical Specs Box */
+    .specs-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-top: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .specs-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .spec-item {
+      background: var(--muted);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 12px 14px;
+    }
+    .spec-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+      color: var(--muted-foreground);
+      margin-bottom: 4px;
+    }
+    .spec-value {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #111827;
+    }
+
     /* FAQ Section */
     .faq-grid {
       display: grid;
@@ -1056,12 +1099,12 @@
       </div>
     </section>
 
-    <!-- Step-by-Step Flow -->
+    <!-- How to Download Coursera Courses: Step-by-Step Guide -->
     <section id="flow" style="background: #FFFFFF; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Step-by-Step Usage Flow</h2>
-          <p class="section-desc">Pragmatic, sequential walkthrough for non-technical users.</p>
+          <h2 class="section-title">How to Download Coursera Courses: Step-by-Step Guide</h2>
+          <p class="section-desc">Pragmatic, sequential walkthrough to save lecture materials locally and download Coursera videos for offline use.</p>
         </div>
 
         <div class="steps-grid">
@@ -1121,28 +1164,57 @@
                 <td><strong>macOS</strong></td>
                 <td>Apple Silicon (M1 / M2 / M3 / M4)</td>
                 <td><span class="tag">.dmg</span></td>
-                <td><a href="https://github.com/courseradl/coursera-dl-gui/releases/latest" target="_blank" rel="noopener noreferrer" class="table-link">Download Installer →</a></td>
+                <td><a href="https://github.com/courseradl/coursera-dl-gui/releases/latest" target="_blank" rel="noopener noreferrer" class="table-link" aria-label="Download Coursera DL for macOS Apple Silicon">Download Coursera DL for macOS (Apple Silicon) →</a></td>
               </tr>
               <tr>
                 <td><strong>macOS</strong></td>
                 <td>Intel Chip (x86_64)</td>
                 <td><span class="tag">.dmg</span></td>
-                <td><a href="https://github.com/courseradl/coursera-dl-gui/releases/latest" target="_blank" rel="noopener noreferrer" class="table-link">Download Installer →</a></td>
+                <td><a href="https://github.com/courseradl/coursera-dl-gui/releases/latest" target="_blank" rel="noopener noreferrer" class="table-link" aria-label="Download Coursera DL for macOS Intel">Download Coursera DL for macOS (Intel x86_64) →</a></td>
               </tr>
               <tr>
                 <td><strong>Windows</strong></td>
                 <td>x64 Architecture</td>
                 <td><span class="tag">.exe</span></td>
-                <td><a href="https://github.com/courseradl/coursera-dl-gui/releases/latest" target="_blank" rel="noopener noreferrer" class="table-link">Download Installer →</a></td>
+                <td><a href="https://github.com/courseradl/coursera-dl-gui/releases/latest" target="_blank" rel="noopener noreferrer" class="table-link" aria-label="Download Coursera DL Installer for Windows x64">Download Coursera DL for Windows (x64) →</a></td>
               </tr>
               <tr>
                 <td><strong>Linux</strong></td>
                 <td>x86_64 / ARM64</td>
                 <td><span class="tag">.AppImage / .deb</span></td>
-                <td><a href="https://github.com/courseradl/coursera-dl-gui/releases/latest" target="_blank" rel="noopener noreferrer" class="table-link">Download Binary →</a></td>
+                <td><a href="https://github.com/courseradl/coursera-dl-gui/releases/latest" target="_blank" rel="noopener noreferrer" class="table-link" aria-label="Download Coursera DL package for Linux">Download Coursera DL for Linux (AppImage/deb) →</a></td>
               </tr>
             </tbody>
           </table>
+        </div>
+
+        <!-- Fast Technical Specs Block for Generative AI Summaries (GEO) -->
+        <div class="specs-card">
+          <div class="specs-title">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+            <span>Technical Specifications & Architecture Summary</span>
+          </div>
+          <div class="specs-grid">
+            <div class="spec-item">
+              <div class="spec-label">Core Engine</div>
+              <div class="spec-value">Native Rust & Tauri v2 Desktop Framework</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-label">Supported File Formats</div>
+              <div class="spec-value">MP4 Videos (1080p/720p), VTT/SRT Subtitles, PDF Slides</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-label">Batch Downloading</div>
+              <div class="spec-value">1-Click Full Specialization & Professional Certificate Syllabus</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-label">Compatible Architectures</div>
+              <div class="spec-value">Apple Silicon (M1–M4), Intel x86_64, Windows x64, Linux ARM64</div>
+            </div>
+          </div>
+          <p style="margin-top: 14px; font-size: 0.85rem; color: #4B5563;">
+            Coursera DL is a free, open-source <strong>alternative to legacy coursera-dl Python scripts</strong>, designed to eliminate broken scrapers and terminal installation issues with an isolated local workstation GUI.
+          </p>
         </div>
       </div>
     </section>
