@@ -1,0 +1,24 @@
+# Coursera DL — Full Documentation
+
+> Extended technical documentation, architecture, feature breakdown, and build instructions for Coursera DL.
+
+## Overview
+Coursera DL is an open-source desktop application that enables users to preserve enrolled Coursera learning materials locally for offline study. It is built using Tauri v2, a Rust backend, and a React frontend.
+
+## Key Features
+- **Video Downloads**: Download 720p and 1080p MP4 lectures with localized subtitles (.vtt).
+- **Course Assets**: Archive lecture notes, readings, supplemental resources, and assignment assets.
+- **Specialization Support**: Batch enroll and batch archive all nested modules across complete specializations.
+- **Privacy & Security**: Authentication takes place strictly on the client using session cookies (`CAUTH`). No credentials or personal telemetry are sent to external servers.
+
+## Quick Start
+1. Log in to Coursera in your web browser.
+2. Export your session cookie (`CAUTH`).
+3. Open Coursera DL and enter your cookie.
+4. Select courses and target directory to start archiving.
+
+## Development & Build
+- Prerequisites: Node.js (>=18), Rust toolchain (cargo), and pnpm.
+- Clone: `git clone https://github.com/courseradl/coursera-dl-gui.git`
+- Run Dev: `pnpm install && pnpm tauri dev`
+- Build: `pnpm tauri build`

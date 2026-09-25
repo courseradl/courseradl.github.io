@@ -1,26 +1,17 @@
-# Coursera DL — Course Archiving Tool
+# Coursera DL
 
-> High-performance cross-platform desktop application powered by Rust, Tauri v2, and React for archiving enrolled Coursera courses, HD videos, lecture notes, and materials for offline personal study.
+> High-performance cross-platform desktop application built with Tauri v2, Rust, and React to archive enrolled Coursera courses, HD videos, lecture slides, and multilingual subtitles for offline personal study.
 
-- **Website**: https://courseradl.github.io/
-- **Repository**: https://github.com/courseradl/coursera-dl-gui
-- **License**: GNU General Public License v3.0 (GPL-3.0)
-- **Supported Platforms**: macOS (Apple Silicon & Intel), Windows (x64), Linux (AppImage & deb)
+Coursera DL is a free and open-source desktop tool designed for personal backup and offline learning preservation.
 
-## Core Capabilities
-- **Desktop GUI**: Native desktop interface built on Tauri v2 and React.
-- **Video & Materials Archiving**: Downloads 720p/1080p videos, lecture slides, course PDFs, and multilingual subtitles (.vtt).
-- **Specialization Support**: Automatic discovery and batch archiving across nested syllabus modules and complete specializations.
-- **Privacy First**: Authenticates locally using session cookies (`CAUTH`). No user credentials or personal data are transmitted to third-party servers.
+## Docs
 
-## Quick Start & Usage Flow
-1. Log in to Coursera in your web browser.
-2. Export your session cookies (`CAUTH`).
-3. Open Coursera DL and paste your session cookie into the local authentication field.
-4. Select active course modules, specify output folder, and start archiving.
+- [Overview and User Guide](https://courseradl.github.io/): Complete feature breakdown, security and privacy details, interactive flow, and downloads.
+- [GitHub Repository](https://github.com/courseradl/coursera-dl-gui): Source code, issues, release binaries, and contribution guidelines.
+- [Full LLM Details](https://courseradl.github.io/llms-full.txt): Comprehensive extended documentation and technical architecture for LLMs.
 
-## Development & Build Instructions
-- Prerequisites: Node.js (>=18), Rust toolchain (cargo), and pnpm / npm.
-- Clone: `git clone https://github.com/courseradl/coursera-dl-gui.git`
-- Dev mode: `pnpm install && pnpm tauri dev`
-- Build binary: `pnpm tauri build`
+## Optional
+
+- [Latest Releases](https://github.com/courseradl/coursera-dl-gui/releases/latest): Native installers for macOS (.dmg), Windows (.exe), and Linux (.AppImage / .deb).
+- [License](https://www.gnu.org/licenses/gpl-3.0.html): GNU General Public License v3.0 (GPL-3.0).
+- [Organization](https://github.com/courseradl): Coursera DL Community GitHub organization.
