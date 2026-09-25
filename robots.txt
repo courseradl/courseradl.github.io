@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemaps and AI discovery
+Sitemap: https://courseradl.github.io/sitemap.xml

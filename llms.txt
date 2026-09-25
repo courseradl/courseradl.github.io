@@ -1,0 +1,26 @@
+# Coursera DL — Course Archiving Tool
+
+> High-performance cross-platform desktop application powered by Rust, Tauri v2, and React for archiving enrolled Coursera courses, HD videos, lecture notes, and materials for offline personal study.
+
+- **Website**: https://courseradl.github.io/
+- **Repository**: https://github.com/courseradl/coursera-dl-gui
+- **License**: GNU General Public License v3.0 (GPL-3.0)
+- **Supported Platforms**: macOS (Apple Silicon & Intel), Windows (x64), Linux (AppImage & deb)
+
+## Core Capabilities
+- **Desktop GUI**: Native desktop interface built on Tauri v2 and React.
+- **Video & Materials Archiving**: Downloads 720p/1080p videos, lecture slides, course PDFs, and multilingual subtitles (.vtt).
+- **Specialization Support**: Automatic discovery and batch archiving across nested syllabus modules and complete specializations.
+- **Privacy First**: Authenticates locally using session cookies (`CAUTH`). No user credentials or personal data are transmitted to third-party servers.
+
+## Quick Start & Usage Flow
+1. Log in to Coursera in your web browser.
+2. Export your session cookies (`CAUTH`).
+3. Open Coursera DL and paste your session cookie into the local authentication field.
+4. Select active course modules, specify output folder, and start archiving.
+
+## Development & Build Instructions
+- Prerequisites: Node.js (>=18), Rust toolchain (cargo), and pnpm / npm.
+- Clone: `git clone https://github.com/courseradl/coursera-dl-gui.git`
+- Dev mode: `pnpm install && pnpm tauri dev`
+- Build binary: `pnpm tauri build`
