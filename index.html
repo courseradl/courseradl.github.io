@@ -5,27 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- Primary Meta Tags -->
-  <title>Coursera DL — High-Performance Coursera Course Downloader</title>
-  <meta name="title" content="Coursera DL — High-Performance Coursera Course Downloader">
-  <meta name="description" content="Download Coursera courses, specializations, high-quality videos, PDFs, and subtitles for offline learning. A lightweight desktop app for Windows, Mac, and Linux.">
-  <meta name="keywords" content="coursera downloader, how to download coursera courses, coursera course downloader, download coursera videos with subtitles, coursera video downloader for windows mac, coursera dl gui, tauri coursera downloader, offline coursera backup">
+  <title>Coursera DL - High-Performance Coursera Course Downloader</title>
+  <meta name="title" content="Coursera DL - High-Performance Coursera Course Downloader">
+  <meta name="description" content="Download Coursera courses, specializations, high-quality videos (720p/1080p), PDFs, and subtitles for offline learning. A safe, lightweight desktop app for Windows, Mac, and Linux.">
+  <meta name="keywords" content="coursera course downloader, download coursera videos, save coursera courses offline, coursera video downloader, coursera backup tool, coursera tauri rust app, how to download coursera courses">
   <meta name="author" content="Coursera DL Community">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://courseradl.github.io/">
   
-  <!-- Open Graph / Facebook -->
+  <!-- Open Graph / Facebook / LinkedIn (For rich social sharing previews) -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://courseradl.github.io/">
   <meta property="og:site_name" content="Coursera DL">
-  <meta property="og:title" content="Coursera DL — High-Performance Coursera Course Downloader">
-  <meta property="og:description" content="Download Coursera courses, specializations, high-quality videos, PDFs, and subtitles for offline learning. Modern desktop app for Windows, Mac, and Linux.">
+  <meta property="og:title" content="Coursera DL - High-Performance Coursera Course Downloader">
+  <meta property="og:description" content="Safely download and archive entire Coursera specializations, high-res videos, slides, and subtitles with our user-friendly desktop application.">
   <meta property="og:image" content="https://courseradl.github.io/assets/logo.png">
 
-  <!-- Twitter -->
+  <!-- Twitter Card Previews -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://courseradl.github.io/">
-  <meta property="twitter:title" content="Coursera DL — High-Performance Coursera Course Downloader">
-  <meta property="twitter:description" content="Download Coursera courses, specializations, high-quality videos, PDFs, and subtitles for offline learning. Modern desktop app for Windows, Mac, and Linux.">
+  <meta property="twitter:title" content="Coursera DL - High-Performance Coursera Course Downloader">
+  <meta property="twitter:description" content="Safely download and archive entire Coursera specializations, high-res videos, slides, and subtitles with our user-friendly desktop application.">
   <meta property="twitter:image" content="https://courseradl.github.io/assets/logo.png">
 
   <!-- Structured Data (JSON-LD) for SEO & GEO AI Rich Snippets -->
@@ -37,23 +37,28 @@
         "@type": "SoftwareApplication",
         "@id": "https://courseradl.github.io/#software",
         "name": "Coursera DL",
-        "operatingSystem": "Windows, macOS, Linux",
+        "description": "An open-source, high-performance desktop utility to download and archive Coursera courses, specializations, video lectures, reading materials, and subtitles for personal offline use.",
         "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Windows, macOS, Linux",
+        "downloadUrl": "https://courseradl.github.io/",
+        "license": "https://www.gnu.org/licenses/gpl-3.0.html",
         "offers": {
           "@type": "Offer",
-          "price": "0",
+          "price": "0.00",
           "priceCurrency": "USD"
         },
-        "description": "A high-performance, open-source desktop application built with Tauri v2, Rust, and React to download and archive enrolled Coursera courses, HD videos, lecture slides, and multilingual subtitles for offline personal study.",
-        "url": "https://courseradl.github.io/",
-        "downloadUrl": "https://github.com/courseradl/coursera-dl-gui/releases/latest",
-        "softwareVersion": "1.0.0",
-        "license": "https://www.gnu.org/licenses/gpl-3.0.html",
         "author": {
           "@type": "Organization",
           "name": "Coursera DL Community",
           "url": "https://github.com/courseradl"
-        }
+        },
+        "featureList": [
+          "High-resolution video segment archival (720p/1080p)",
+          "Course lecture slide and PDF downloads",
+          "Multilingual subtitle extraction",
+          "Human-mimicking smart download throttling",
+          "One-click batch specialization downloading"
+        ]
       },
       {
         "@type": "FAQPage",
@@ -61,18 +66,26 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Can I download Coursera videos in 1080p with subtitles?",
+            "name": "Can I download entire Specializations at once?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Coursera DL downloads videos in highest available resolutions (720p/1080p MP4) and captures multilingual VTT/SRT subtitles along with lecture notes and course PDF slides."
+              "text": "Yes, the app automatically maps nested courses to execute one-click batch downloads."
             }
           },
           {
             "@type": "Question",
-            "name": "Is Coursera DL safe to use with my personal account?",
+            "name": "Is Coursera DL safe for my account?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Authentication is handled 100% locally on your computer using your browser session cookie (CAUTH). No login credentials, cookies, or personal telemetry are ever transmitted to third-party servers."
+              "text": "Yes, it operates locally with isolated workstation session cookies and incorporates automated random delays to bypass grouping requests."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I download Coursera videos in 1080p and 720p with subtitles?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Coursera DL downloads videos in highest available resolutions (720p/1080p MP4) and captures multilingual VTT/SRT subtitles along with lecture notes and course PDF slides."
             }
           },
           {
@@ -81,14 +94,6 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Legacy python-based CLI tools frequently break due to obsolete API parsers, require complex Python terminal setups, and lack batch specialization management. Coursera DL provides a native, modern Rust/Tauri desktop GUI with 1-click batch downloads and automatic module syllabus discovery."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does Coursera DL support batch downloading full specializations?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Coursera DL automatically identifies all sub-courses within an enrolled Specialization or Professional Certificate and allows one-click batch downloading of the complete syllabus."
             }
           }
         ]
