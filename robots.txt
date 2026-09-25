@@ -1,33 +1,32 @@
 User-agent: *
 Allow: /
 
-# OpenAI Crawlers
-User-agent: GPTBot
-Allow: /
-
+# Explicit AI Search Crawlers (GEO)
 User-agent: OAI-SearchBot
 Allow: /
 
-# Anthropic Crawlers
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
 User-agent: Claude-Web
 Allow: /
 
 User-agent: anthropic-ai
 Allow: /
 
-# Google AI Crawler
 User-agent: Google-Extended
 Allow: /
 
-# Perplexity AI Crawler
-User-agent: PerplexityBot
-Allow: /
-
-# Cohere AI Crawler
 User-agent: cohere-ai
 Allow: /
 
-# Content Signals for AI Actions (https://contentsignals.org/)
+# Content Signals for AI Discovery (https://contentsignals.org/)
 Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 # Sitemaps
