@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>Changelog - Coursera DL Releases & Updates</title>
+  <meta name="title" content="Changelog - Coursera DL Releases & Updates">
+  <meta name="description" content="Stay up to date with the latest features, improvements, and bug fixes in Coursera DL. See what's new in every release.">
+  <meta name="keywords" content="coursera dl changelog, coursera downloader updates, release notes, courseradl versions, coursera downloader what is new">
+  <meta name="author" content="Coursera DL Community">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://courseradl.github.io/changelog.html">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://courseradl.github.io/changelog.html">
+  <meta property="og:site_name" content="Coursera DL">
+  <meta property="og:title" content="Changelog - Coursera DL Releases & Updates">
+  <meta property="og:description" content="Track every update, new feature, and improvement shipped in Coursera DL.">
+  <meta property="og:image" content="https://courseradl.github.io/assets/logo.png">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://courseradl.github.io/changelog.html">
+  <meta property="twitter:title" content="Changelog - Coursera DL Releases & Updates">
+  <meta property="twitter:description" content="Track every update, new feature, and improvement shipped in Coursera DL.">
+  <meta property="twitter:image" content="https://courseradl.github.io/assets/logo.png">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://courseradl.github.io/changelog.html#webpage",
+        "url": "https://courseradl.github.io/changelog.html",
+        "name": "Coursera DL Changelog",
+        "description": "Release notes, new features, and bug fixes for the Coursera DL desktop client."
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://courseradl.github.io/#software",
+        "name": "Coursera DL",
+        "softwareVersion": "1.0.0",
+        "datePublished": "2026-09-25",
+        "releaseNotes": "https://courseradl.github.io/changelog.html",
+        "downloadUrl": "https://courseradl.github.io/",
+        "operatingSystem": "Windows, macOS, Linux"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap">
+  </noscript>
+
+  <style>
+    :root {
+      /* Light theme tokens */
+      --background: #F8FAFC;
+      --foreground: #0F172A;
+      --card: #FFFFFF;
+      --card-foreground: #0F172A;
+      --primary: #0056D2;
+      --primary-hover: #00419E;
+      --primary-foreground: #FFFFFF;
+      --secondary: #F1F5F9;
+      --secondary-foreground: #0F172A;
+      --muted: #F1F5F9;
+      --muted-foreground: #64748B;
+      --accent: #E8F0FE;
+      --accent-foreground: #0056D2;
+      --border: #E2E8F0;
+      --border-subtle: #F1F5F9;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+      --header-bg: rgba(255, 255, 255, 0.92);
+      --text-heading: #0F172A;
+      --text-body: #475569;
+      --radius: 12px;
+    }
+
+    /* Dark theme tokens (matching cf-studio-web) */
+    html.dark {
+      --background: #090D16;
+      --foreground: #F8FAFC;
+      --card: #0F172A;
+      --card-foreground: #F8FAFC;
+      --primary: #3B82F6;
+      --primary-hover: #2563EB;
+      --primary-foreground: #FFFFFF;
+      --secondary: #1E293B;
+      --secondary-foreground: #F8FAFC;
+      --muted: #1E293B;
+      --muted-foreground: #94A3B8;
+      --accent: rgba(59, 130, 246, 0.15);
+      --accent-foreground: #60A5FA;
+      --border: #1E293B;
+      --border-subtle: #162032;
+      --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.5);
+      --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.6);
+      --header-bg: rgba(9, 13, 22, 0.92);
+      --text-heading: #F8FAFC;
+      --text-body: #94A3B8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--background);
+      color: var(--foreground);
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    code, pre {
+      font-family: 'Fira Code', ui-monospace, monospace;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--header-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--foreground);
+      font-weight: 700;
+      font-size: 1.15rem;
+    }
+    .brand img {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted-foreground);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: color 0.15s ease;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--primary);
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--foreground);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-theme-toggle:hover {
+      background: var(--muted);
+      border-color: rgba(59, 130, 246, 0.4);
+      transform: translateY(-1px);
+    }
+    .btn-github {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--foreground);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+    .btn-github:hover {
+      background: var(--muted);
+      border-color: #CBD5E1;
+      transform: translateY(-1px);
+    }
+
+    /* Page Hero */
+    .hero-section {
+      padding: 70px 0 40px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent);
+      border: 1px solid rgba(0, 86, 210, 0.2);
+      color: var(--primary);
+      padding: 5px 14px;
+      border-radius: 9999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+      color: var(--text-heading);
+      line-height: 1.15;
+    }
+    .hero-title span {
+      color: var(--primary);
+    }
+    .hero-desc {
+      color: var(--muted-foreground);
+      font-size: 1.1rem;
+      max-width: 620px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Summary Stats (cf-studio-web style) */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 36px 0 32px;
+    }
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .stat-num {
+      font-size: 1.9rem;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+    .stat-num.releases { color: var(--text-heading); }
+    .stat-num.features { color: #10B981; }
+    .stat-num.fixes { color: var(--primary); }
+    .stat-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted-foreground);
+      font-weight: 700;
+      margin-top: 4px;
+    }
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    /* Filter Tabs */
+    .filter-tabs {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 40px;
+    }
+    .filter-btn {
+      padding: 8px 18px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--muted-foreground);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .filter-btn:hover {
+      border-color: #CBD5E1;
+      color: var(--foreground);
+    }
+    .filter-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #FFFFFF;
+      box-shadow: 0 2px 8px rgba(0, 86, 210, 0.25);
+    }
+
+    /* Timeline Container */
+    .timeline-container {
+      position: relative;
+      margin-bottom: 60px;
+    }
+    .timeline-line {
+      position: absolute;
+      left: 18px;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(59, 130, 246, 0.4), var(--border), transparent);
+    }
+    .timeline-entry {
+      position: relative;
+      padding-left: 54px;
+      padding-bottom: 40px;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: 10px;
+      top: 6px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 3px solid var(--background);
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.35);
+    }
+    .timeline-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s ease;
+    }
+    .timeline-card:hover {
+      border-color: rgba(59, 130, 246, 0.4);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .timeline-card.latest {
+      border-color: rgba(59, 130, 246, 0.35);
+      box-shadow: 0 8px 25px -5px rgba(59, 130, 246, 0.15);
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .badge-latest {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      background: var(--primary);
+      color: #FFFFFF;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .badge-type {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      background: var(--accent);
+      border: 1px solid rgba(0, 86, 210, 0.2);
+      color: var(--primary);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .card-title-row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .card-version {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text-heading);
+      letter-spacing: -0.02em;
+    }
+    .card-date {
+      color: var(--muted-foreground);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .feature-group {
+      margin-top: 18px;
+    }
+    .group-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+    .group-label.features { color: #10B981; }
+    .group-label.fixes { color: var(--primary); }
+
+    .group-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .group-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.92rem;
+      color: var(--text-body);
+      line-height: 1.55;
+    }
+    .group-list li span.bullet {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+    .bullet.features { background: #10B981; }
+    .bullet.fixes { background: var(--primary); }
+
+    /* Footer */
+    footer {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      padding: 50px 0 30px;
+      margin-top: 60px;
+      color: var(--foreground);
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-brand-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--text-heading);
+      margin-bottom: 10px;
+    }
+    .footer-brand-desc {
+      color: var(--muted-foreground);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+    .footer-col h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-heading);
+      margin-bottom: 14px;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-col a {
+      color: var(--muted-foreground);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.15s ease;
+    }
+    .footer-col a:hover {
+      color: var(--primary);
+    }
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.84rem;
+      color: var(--muted-foreground);
+    }
+
+    @media (max-width: 768px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="index.html" class="brand" aria-label="Coursera DL Home">
+          <picture>
+            <source srcset="assets/logo-64.webp" type="image/webp">
+            <img src="assets/logo-64.png" alt="Coursera DL Logo" width="36" height="36">
+          </picture>
+          <span>Coursera DL</span>
+        </a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#flow">How It Works</a></li>
+            <li><a href="index.html#downloads">Install</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+            <li><a href="changelog.html" class="active">Changelog</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <a href="https://github.com/courseradl/coursera-dl-gui" target="_blank" rel="noopener noreferrer" class="btn-github">
+            <svg height="18" width="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+            </svg>
+            <span>GitHub</span>
+          </a>
+          <button type="button" class="btn-theme-toggle" id="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+            <svg id="theme-icon-sun" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="display: none;">
+              <circle cx="12" cy="12" r="5" stroke-width="2"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+            <svg id="theme-icon-moon" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Hero -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-badge">
+          <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-width="2" d="M12 6v6l4 2"/></svg>
+          Release Notes & Updates
+        </div>
+        <h1 class="hero-title">
+          Change<span>log</span>
+        </h1>
+        <p class="hero-desc">
+          Track every update, release binary, and improvement shipped for Coursera DL. Built with Tauri v2 and native Rust.
+        </p>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-num releases" id="stat-releases">1</div>
+            <div class="stat-label">Total Releases</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num features" id="stat-features">9</div>
+            <div class="stat-label">Features Shipped</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num fixes" id="stat-fixes">2</div>
+            <div class="stat-label">Fixes & Polishes</div>
+          </div>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="filter-tabs">
+          <button type="button" class="filter-btn active" onclick="setFilter('all', this)">All Updates</button>
+          <button type="button" class="filter-btn" onclick="setFilter('features', this)">✨ Features</button>
+          <button type="button" class="filter-btn" onclick="setFilter('fixes', this)">🐛 Bug Fixes</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section>
+      <div class="container">
+        <div class="timeline-container">
+          <div class="timeline-line"></div>
+          
+          <div id="timeline-feed">
+            <!-- Prerendered Initial Entry for SEO & NoScript -->
+            <article class="timeline-entry" data-version="1.0.0" data-has-features="true" data-has-fixes="true">
+              <div class="timeline-dot"></div>
+              <div class="timeline-card latest">
+                <div class="card-meta">
+                  <span class="badge-latest">🚀 Latest Release</span>
+                  <span class="badge-type">Major Release</span>
+                </div>
+                <div class="card-title-row">
+                  <h2 class="card-version">v1.0.0</h2>
+                  <time class="card-date" datetime="2026-09-25">September 25, 2026</time>
+                </div>
+
+                <div class="feature-group">
+                  <div class="group-label features">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                    <span>New Features</span>
+                  </div>
+                  <ul class="group-list">
+                    <li><span class="bullet features"></span>Initial stable launch of Coursera DL desktop client</li>
+                    <li><span class="bullet features"></span>Native Tauri v2 and Rust core engine for ultra-low memory usage and native speed</li>
+                    <li><span class="bullet features"></span>High-resolution video segment downloader supporting 1080p and 720p streams</li>
+                    <li><span class="bullet features"></span>Automated extraction and downloading of multilingual VTT and SRT subtitles</li>
+                    <li><span class="bullet features"></span>Lecture notes, reading materials, and PDF slides downloading</li>
+                    <li><span class="bullet features"></span>One-click batch specialization discovery and nested course downloader</li>
+                    <li><span class="bullet features"></span>Local workstation session cookie (CAUTH) authentication with zero remote telemetry</li>
+                    <li><span class="bullet features"></span>Human-mimicking smart request throttling with randomized pacing</li>
+                    <li><span class="bullet features"></span>One-line automated shell installers for macOS, Linux, and Windows PowerShell</li>
+                  </ul>
+                </div>
+
+                <div class="feature-group">
+                  <div class="group-label fixes">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <span>Fixes & Improvements</span>
+                  </div>
+                  <ul class="group-list">
+                    <li><span class="bullet fixes"></span>Resolved expired session recovery and network timeout chunk resumption</li>
+                    <li><span class="bullet fixes"></span>Fixed macOS DMG mount quarantine permissions on Apple Silicon and Intel</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div style="text-align: center; color: var(--muted-foreground); font-size: 0.88rem;">
+          🎉 You've reached the beginning of the Coursera DL release journey — v1.0.0
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-brand-title">
+            <picture>
+              <source srcset="assets/logo-64.webp" type="image/webp">
+              <img src="assets/logo-64.png" alt="Coursera DL Logo" width="28" height="28" style="border-radius: 6px;">
+            </picture>
+            <span>Coursera DL</span>
+          </div>
+          <p class="footer-brand-desc">
+            The high-performance desktop client for offline Coursera course downloading. Built with native Rust and Tauri v2. 100% Free and Open Source under GPL v3.0.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#flow">How It Works</a></li>
+            <li><a href="index.html#downloads">Install Commands</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+            <li><a href="changelog.html">Changelog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Community & Code</h4>
+          <ul>
+            <li><a href="https://github.com/courseradl/coursera-dl-gui" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+            <li><a href="https://github.com/courseradl/coursera-dl-gui/releases/latest" target="_blank" rel="noopener noreferrer">Latest Releases</a></li>
+            <li><a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noopener noreferrer">GPL v3.0 License</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Coursera DL Community. All rights reserved.</div>
+        <div>Unofficial community utility for personal offline course downloading.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Dynamic Remote Fetch & Filter Script -->
+  <script>
+    var changelogData = [];
+
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      try {
+        var parts = dateStr.split('-');
+        if (parts.length === 3) {
+          var date = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+          return date.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+          });
+        }
+      } catch (e) {}
+      return dateStr;
+    }
+
+    function getVersionLabel(version) {
+      var parts = (version || '').split('.');
+      var major = parseInt(parts[0], 10) || 0;
+      var minor = parseInt(parts[1], 10) || 0;
+      var patch = parts[2] ? parts[2] : '0';
+      if (major >= 1 && minor === 0 && patch === '0') return 'Major Release';
+      if (minor > 0 && patch === '0') return 'Minor Release';
+      return 'Patch Release';
+    }
+
+    function renderChangelogs(entries) {
+      var container = document.getElementById('timeline-feed');
+      if (!container || !entries || !entries.length) return;
+
+      var totalFeatures = 0;
+      var totalFixes = 0;
+
+      entries.forEach(function(e) {
+        if (e.features && Array.isArray(e.features)) totalFeatures += e.features.length;
+        if (e.fixes && Array.isArray(e.fixes)) totalFixes += e.fixes.length;
+      });
+
+      var elReleases = document.getElementById('stat-releases');
+      var elFeatures = document.getElementById('stat-features');
+      var elFixes = document.getElementById('stat-fixes');
+      if (elReleases) elReleases.textContent = entries.length;
+      if (elFeatures) elFeatures.textContent = totalFeatures;
+      if (elFixes) elFixes.textContent = totalFixes;
+
+      var html = '';
+      entries.forEach(function(entry, index) {
+        var isLatest = index === 0;
+        var hasFeatures = entry.features && entry.features.length > 0;
+        var hasFixes = entry.fixes && entry.fixes.length > 0;
+        var versionLabel = getVersionLabel(entry.version);
+        var formattedDate = formatDate(entry.date);
+
+        html += '<article class="timeline-entry" data-version="' + (entry.version || '') + '" data-has-features="' + hasFeatures + '" data-has-fixes="' + hasFixes + '">';
+        html += '  <div class="timeline-dot"></div>';
+        html += '  <div class="timeline-card' + (isLatest ? ' latest' : '') + '">';
+        html += '    <div class="card-meta">';
+        if (isLatest) {
+          html += '      <span class="badge-latest">🚀 Latest Release</span>';
+        }
+        html += '      <span class="badge-type">' + versionLabel + '</span>';
+        html += '    </div>';
+        html += '    <div class="card-title-row">';
+        html += '      <h2 class="card-version">v' + entry.version + '</h2>';
+        html += '      <time class="card-date" datetime="' + entry.date + '">' + formattedDate + '</time>';
+        html += '    </div>';
+
+        if (hasFeatures) {
+          html += '    <div class="feature-group">';
+          html += '      <div class="group-label features">';
+          html += '        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>';
+          html += '        <span>New Features</span>';
+          html += '      </div>';
+          html += '      <ul class="group-list">';
+          entry.features.forEach(function(feat) {
+            html += '        <li><span class="bullet features"></span>' + feat + '</li>';
+          });
+          html += '      </ul>';
+          html += '    </div>';
+        }
+
+        if (hasFixes) {
+          html += '    <div class="feature-group">';
+          html += '      <div class="group-label fixes">';
+          html += '        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>';
+          html += '        <span>Fixes & Improvements</span>';
+          html += '      </div>';
+          html += '      <ul class="group-list">';
+          entry.fixes.forEach(function(fix) {
+            html += '        <li><span class="bullet fixes"></span>' + fix + '</li>';
+          });
+          html += '      </ul>';
+          html += '    </div>';
+        }
+
+        html += '  </div>';
+        html += '</article>';
+      });
+
+      container.innerHTML = html;
+    }
+
+    function setFilter(type, btn) {
+      document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+      if (btn) btn.classList.add('active');
+
+      document.querySelectorAll('.timeline-entry').forEach(function(entry) {
+        var hasFeatures = entry.getAttribute('data-has-features') === 'true';
+        var hasFixes = entry.getAttribute('data-has-fixes') === 'true';
+
+        if (type === 'all') {
+          entry.style.display = 'block';
+        } else if (type === 'features') {
+          entry.style.display = hasFeatures ? 'block' : 'none';
+        } else if (type === 'fixes') {
+          entry.style.display = hasFixes ? 'block' : 'none';
+        }
+      });
+    }
+
+    // Always fetch latest changelog dynamically from raw GitHub repo URL
+    fetch('https://raw.githubusercontent.com/courseradl/coursera-dl-gui/refs/heads/main/changelogs/changelogs.json', { cache: 'no-cache' })
+      .then(function(res) {
+        if (!res.ok) throw new Error('Remote changelog response not OK');
+        return res.json();
+      })
+      .then(function(data) {
+        if (Array.isArray(data) && data.length > 0) {
+          changelogData = data;
+          renderChangelogs(data);
+        }
+      })
+      .catch(function(err) {
+        console.warn('Could not load remote changelog from GitHub, falling back to bundled data:', err);
+      });
+
+    // Theme Toggle Logic (Matches cf-studio-web)
+    function updateThemeUI(theme) {
+      var sunIcon = document.getElementById('theme-icon-sun');
+      var moonIcon = document.getElementById('theme-icon-moon');
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+        if (sunIcon) sunIcon.style.display = 'block';
+        if (moonIcon) moonIcon.style.display = 'none';
+      } else {
+        document.documentElement.classList.remove('dark');
+        if (sunIcon) sunIcon.style.display = 'none';
+        if (moonIcon) moonIcon.style.display = 'block';
+      }
+    }
+
+      window.toggleTheme = function() {
+        var isDark = document.documentElement.classList.contains('dark');
+        var newTheme = isDark ? 'light' : 'dark';
+        try {
+          localStorage.setItem('theme', newTheme);
+        } catch (e) {}
+        updateThemeUI(newTheme);
+      };
+
+      // Initialize theme on load
+      (function initTheme() {
+        var savedTheme = null;
+        try {
+          savedTheme = localStorage.getItem('theme');
+        } catch (e) {}
+        if (!savedTheme) {
+          savedTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        updateThemeUI(savedTheme);
+      })();
+    })();
+  </script>
+</body>
+</html>

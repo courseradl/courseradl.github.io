@@ -1,12 +1,21 @@
 # Coursera DL
 
-> High-performance cross-platform desktop application built with Tauri v2, Rust, and React to archive enrolled Coursera courses, HD videos, lecture slides, and multilingual subtitles for offline personal study.
+> High-performance cross-platform desktop application built with Tauri v2, Rust, and React to download enrolled Coursera courses, HD videos, lecture slides, and multilingual subtitles for offline personal study.
 
-Coursera DL is a free and open-source desktop tool designed for personal backup and offline learning preservation.
+Coursera DL is a free, fast, and open-source desktop tool designed for personal backup and offline learning preservation.
+
+## Key Features & Authentication
+- **1-Click Direct Coursera Login**: Seamless embedded login window for regular users. Automatically detects and authenticates your `CAUTH` session cookie.
+- **Manual Cookie Login for Power Users**: Power users can optionally export and paste their `CAUTH` session cookie directly.
+- **Privacy & Local Security**: Zero credentials or passwords stored. All cookies remain strictly on your local machine with zero external backend servers. 100% open-source and auditable.
+- **1080p & 720p Video Downloads**: High-speed chunk-based streaming with multi-stream resilience.
+- **Subtitles & PDF Slides**: Downloads multilingual VTT/SRT captions and full lecture slides/notes.
+- **Batch Specialization Discovery**: 1-click batch discovery and downloading for complete programs.
 
 ## Docs
 
 - [Overview and User Guide](https://courseradl.github.io/): Complete feature breakdown, security and privacy details, interactive flow, and downloads.
+- [Changelog & Releases](https://courseradl.github.io/changelog.html): Full version history, features, and bug fixes for every release.
 - [GitHub Repository](https://github.com/courseradl/coursera-dl-gui): Source code, issues, release binaries, and contribution guidelines.
 - [Full LLM Details](https://courseradl.github.io/llms-full.txt): Comprehensive extended documentation and technical architecture for LLMs.
 

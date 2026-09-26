@@ -3,19 +3,33 @@
 > Extended technical documentation, architecture, feature breakdown, and build instructions for Coursera DL.
 
 ## Overview
-Coursera DL is an open-source desktop application that enables users to preserve enrolled Coursera learning materials locally for offline study. It is built using Tauri v2, a Rust backend, and a React frontend.
+Coursera DL is an open-source desktop application that enables users to download and preserve enrolled Coursera learning materials locally for offline study. It is engineered using Tauri v2, a native Rust backend, and a modern React frontend.
+
+## Authentication Methods
+1. **1-Click Direct Coursera Login (Regular Users)**:
+   - Users click the "Login with Coursera" button in the desktop app.
+   - An embedded Coursera web window opens allowing normal login.
+   - Upon sign-in, Coursera DL internally captures only the necessary session cookie (`CAUTH`) without requiring manual copying or technical setup.
+2. **Manual Session Cookie (Power Users)**:
+   - Power users can manually extract their `CAUTH` cookie from their browser and paste it into the application settings.
+
+## Privacy & Security Architecture
+- **Zero Credentials Stored**: Passwords and login credentials are never stored, logged, or intercepted.
+- **Zero Backend Servers**: All communication happens strictly between the user's local workstation and official Coursera APIs. No telemetry, analytics, or user data are sent to any remote servers.
+- **Encrypted Local Storage**: Session data stays encrypted locally on the user's machine.
+- **100% Open Source**: Fully transparent and auditable on GitHub under the GPL-3.0 License.
 
 ## Key Features
-- **Video Downloads**: Download 720p and 1080p MP4 lectures with localized subtitles (.vtt).
-- **Course Assets**: Archive lecture notes, readings, supplemental resources, and assignment assets.
-- **Specialization Support**: Batch enroll and batch archive all nested modules across complete specializations.
-- **Privacy & Security**: Authentication takes place strictly on the client using session cookies (`CAUTH`). No credentials or personal telemetry are sent to external servers.
+- **Video Downloads**: Download 720p and 1080p MP4 lectures with localized subtitles (.vtt and .srt).
+- **Course Assets**: Download lecture notes, readings, supplemental resources, and assignment assets.
+- **Specialization Support**: Batch enroll and batch download all nested modules across complete specializations.
+- **Smart Throttling**: Human-mimicking random pacing to protect user accounts from rate limiting.
 
 ## Quick Start
-1. Log in to Coursera in your web browser.
-2. Export your session cookie (`CAUTH`).
-3. Open Coursera DL and enter your cookie.
-4. Select courses and target directory to start archiving.
+1. Open Coursera DL desktop application.
+2. Click **"Login with Coursera"** (or paste your `CAUTH` cookie in Settings).
+3. Select enrolled courses or paste a course slug.
+4. Choose video quality and target directory to start downloading.
 
 ## Development & Build
 - Prerequisites: Node.js (>=18), Rust toolchain (cargo), and pnpm.
