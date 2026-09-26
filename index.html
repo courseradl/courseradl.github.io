@@ -431,60 +431,118 @@
       transform: translateY(-1px);
     }
 
-    /* Live Desktop Window Showcase & Screenshots */
-    .app-window-wrapper {
+    /* Screenshots Showcase & Tab System (Clean, No artificial window frame/bg) */
+    .screenshots-showcase {
       margin-top: 45px;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      box-shadow: var(--shadow-xl), 0 20px 50px -10px rgba(0, 86, 210, 0.12);
-      overflow: hidden;
-      text-align: left;
-      position: relative;
+      text-align: center;
     }
-    .window-titlebar {
-      height: 40px;
-      background: var(--card);
-      border-bottom: 1px solid var(--border);
+    .showcase-tabs-wrapper {
       display: flex;
       align-items: center;
-      padding: 0 16px;
-      gap: 8px;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
     }
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-    }
-    .dot-close { background: #FF5F56; }
-    .dot-min { background: #FFBD2E; }
-    .dot-max { background: #27C93F; }
-    .window-title {
-      margin-left: 12px;
-      font-size: 0.75rem;
+    .showcase-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 20px;
+      border-radius: 9999px;
+      background: var(--card);
+      border: 1px solid var(--border);
       color: var(--muted-foreground);
-      font-family: 'Fira Code', monospace;
-      font-weight: 500;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .hero-screenshot-img {
+    .showcase-tab-btn:hover {
+      color: var(--foreground);
+      border-color: #CBD5E1;
+      transform: translateY(-1px);
+    }
+    .showcase-tab-btn.active {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
+      box-shadow: 0 4px 14px rgba(0, 86, 210, 0.3);
+    }
+    .screenshot-viewer-container {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .screenshot-panel {
+      display: none;
+      animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .screenshot-panel.active {
+      display: block;
+    }
+    .screenshot-img-raw {
       display: block;
       width: 100%;
       height: auto;
-      object-fit: cover;
+      max-height: 82vh;
+      object-fit: contain;
+      margin: 0 auto;
+      background: transparent;
+      border: none;
+      box-shadow: none;
       cursor: pointer;
-      transition: opacity 0.2s ease;
+      transition: transform 0.2s ease, opacity 0.2s ease;
     }
-    .hero-screenshot-img:hover {
-      opacity: 0.96;
+    .screenshot-img-raw:hover {
+      transform: scale(1.008);
+      opacity: 0.98;
     }
-    .hero-screenshot-dark {
-      display: none;
+
+    /* Strict Theme Image Switching: Light images in Light theme, Dark images in Dark theme */
+    .screenshot-img-dark {
+      display: none !important;
     }
-    html.dark .hero-screenshot-light {
-      display: none;
+    .screenshot-img-light {
+      display: block !important;
     }
-    html.dark .hero-screenshot-dark {
+    html.dark .screenshot-img-light {
+      display: none !important;
+    }
+    html.dark .screenshot-img-dark {
+      display: block !important;
+    }
+
+    .screenshot-hint {
+      margin-top: 14px;
+      font-size: 0.82rem;
+      color: var(--muted-foreground);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* Terminal Install Output Preview (Always visible under the command UI) */
+    .terminal-install-preview {
+      margin-top: 16px;
+      text-align: center;
+    }
+    .terminal-install-screenshot-img {
       display: block;
+      width: 100%;
+      max-width: 680px;
+      height: auto;
+      margin: 0 auto;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .terminal-install-screenshot-img:hover {
+      transform: scale(1.01);
+      opacity: 0.98;
     }
 
     /* Feature Screenshot Action Buttons */
@@ -509,12 +567,12 @@
       transform: translateY(-1px);
     }
 
-    /* Modal Screenshot Lightbox (cf-studio-web style) */
+    /* Modal Screenshot Lightbox (Clean, No artificial frame) */
     .screenshot-modal-backdrop {
       position: fixed;
       inset: 0;
       z-index: 100;
-      background: rgba(15, 23, 42, 0.8);
+      background: rgba(15, 23, 42, 0.85);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       display: none;
@@ -531,11 +589,11 @@
     .screenshot-modal-dialog {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 20px;
+      border-radius: 16px;
       box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.5);
       width: 100%;
-      max-width: 1100px;
-      max-height: 90vh;
+      max-width: 1150px;
+      max-height: 92vh;
       display: flex;
       flex-direction: column;
       overflow: hidden;
@@ -576,16 +634,20 @@
     }
     .screenshot-modal-body {
       padding: 16px;
-      background: var(--background);
+      background: transparent;
       overflow-y: auto;
       text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .screenshot-modal-img {
       max-width: 100%;
+      max-height: 80vh;
       height: auto;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-md);
+      border: none;
+      background: transparent;
+      box-shadow: none;
       display: block;
       margin: 0 auto;
     }
@@ -1442,13 +1504,13 @@
       </button>
     </div>
     <ul class="mobile-menu-links">
-      <li><a href="#features" onclick="toggleMobileMenu(false)">✨ Features</a></li>
-      <li><a href="#flow" onclick="toggleMobileMenu(false)">📖 How It Works</a></li>
-      <li><a href="#downloads" onclick="toggleMobileMenu(false)">⚙️ Specs</a></li>
-      <li><a href="#faq" onclick="toggleMobileMenu(false)">❓ FAQ</a></li>
-      <li><a href="changelog.html" onclick="toggleMobileMenu(false)">🚀 Changelog</a></li>
-      <li><a href="#troubleshooting" onclick="toggleMobileMenu(false)">🛠️ Troubleshooting</a></li>
-      <li><a href="#development" onclick="toggleMobileMenu(false)">💻 Open Source</a></li>
+      <li><a href="#features" onclick="toggleMobileMenu(false)">Features</a></li>
+      <li><a href="#flow" onclick="toggleMobileMenu(false)">How It Works</a></li>
+      <li><a href="#downloads" onclick="toggleMobileMenu(false)">Specs</a></li>
+      <li><a href="#faq" onclick="toggleMobileMenu(false)">FAQ</a></li>
+      <li><a href="changelog.html" onclick="toggleMobileMenu(false)">Changelog</a></li>
+      <li><a href="#troubleshooting" onclick="toggleMobileMenu(false)">Troubleshooting</a></li>
+      <li><a href="#development" onclick="toggleMobileMenu(false)">Open Source</a></li>
     </ul>
     <div style="margin-top:auto; padding-top:20px; border-top:1px solid var(--border);">
       <a href="https://github.com/courseradl/coursera-dl-gui" target="_blank" rel="noopener noreferrer" class="btn-github" aria-label="GitHub Repository" style="width:100%; justify-content:center;">
@@ -1463,7 +1525,7 @@
     <section class="hero animate-fade-in">
       <div class="container">
         <div class="hero-badge">
-          ⚡ Native Rust Core & Tauri v2 Desktop Engine
+          Native Rust Core & Tauri v2 Desktop Engine
         </div>
         <h1 class="hero-title">
           Coursera Course Downloader <br>
@@ -1496,6 +1558,7 @@
             Batch Specializations
           </div>
         </div>
+
         <!-- Interactive One-Line Terminal Installer (Hero) -->
         <div class="install-terminal-container">
           <div class="os-tabs-wrapper">
@@ -1525,21 +1588,81 @@
               </button>
             </div>
           </div>
+
+          <!-- Terminal Installation Output (Always shown directly under command UI) -->
+          <div class="terminal-install-preview" onclick="openScreenshotPreview('terminal-install', 'Terminal Installation', 'Automated One-Line Setup')" style="cursor: pointer;" title="Click to view full resolution">
+            <img src="assets/screenshots/terminal-install.webp" alt="Coursera DL automated terminal installation output on macOS" class="terminal-install-screenshot-img" width="1024" height="706" loading="lazy">
+          </div>
         </div>
 
-        <!-- Live Desktop Window Showcase with Real Screenshots -->
-        <div class="app-window-wrapper">
-          <div class="window-titlebar">
-            <div class="dot dot-close"></div>
-            <div class="dot dot-min"></div>
-            <div class="dot dot-max"></div>
-            <span class="window-title">Coursera DL — Course Downloader</span>
+        <!-- Interactive Screenshots Showcase (Clean, No artificial window background/frame) -->
+        <div class="screenshots-showcase">
+          <!-- Showcase Tabs Switcher (1-Click Login is first, No emojis) -->
+          <div class="showcase-tabs-wrapper" role="tablist" aria-label="App feature previews">
+            <button type="button" class="showcase-tab-btn active" id="tab-btn-login" onclick="switchShowcaseTab('login')" role="tab" aria-selected="true">
+              <span>1-Click Login</span>
+            </button>
+            <button type="button" class="showcase-tab-btn" id="tab-btn-my-courses" onclick="switchShowcaseTab('my-courses')" role="tab" aria-selected="false">
+              <span>Enrolled Courses</span>
+            </button>
+            <button type="button" class="showcase-tab-btn" id="tab-btn-course-slug-dl" onclick="switchShowcaseTab('course-slug-dl')" role="tab" aria-selected="false">
+              <span>Course Slug DL</span>
+            </button>
+            <button type="button" class="showcase-tab-btn" id="tab-btn-active-downloads" onclick="switchShowcaseTab('active-downloads')" role="tab" aria-selected="false">
+              <span>Downloads Library</span>
+            </button>
+            <button type="button" class="showcase-tab-btn" id="tab-btn-settings" onclick="switchShowcaseTab('settings')" role="tab" aria-selected="false">
+              <span>Settings & Preferences</span>
+            </button>
           </div>
-          <picture onclick="openScreenshotPreview('my-courses', 'My Enrolled Courses', 'Course Library & Downloads')" style="cursor: pointer;">
-            <source srcset="assets/screenshots/dark/my-courses.webp" media="(prefers-color-scheme: dark)" class="hero-screenshot-dark">
-            <img src="assets/screenshots/light/my-courses.webp" alt="Coursera DL desktop interface showing enrolled courses" class="hero-screenshot-img hero-screenshot-light" width="1920" height="1323" fetchpriority="high">
-            <img src="assets/screenshots/dark/my-courses.webp" alt="Coursera DL desktop interface showing enrolled courses dark mode" class="hero-screenshot-img hero-screenshot-dark" width="1920" height="1323">
-          </picture>
+
+          <!-- Showcase Viewer Container -->
+          <div class="screenshot-viewer-container">
+            <!-- 1. Login (Active by default) -->
+            <div class="screenshot-panel active" id="panel-login">
+              <div onclick="openScreenshotPreview('login', 'Authentication Flow', 'Direct & Cookie Login')" style="cursor: pointer;">
+                <img src="assets/screenshots/light/login.webp" alt="Coursera DL 1-click direct login and session authentication in light mode" class="screenshot-img-raw screenshot-img-light" width="1920" height="1323" fetchpriority="high">
+                <img src="assets/screenshots/dark/login.webp" alt="Coursera DL 1-click direct login and session authentication in dark mode" class="screenshot-img-raw screenshot-img-dark" width="1920" height="1323">
+              </div>
+            </div>
+
+            <!-- 2. My Courses -->
+            <div class="screenshot-panel" id="panel-my-courses">
+              <div onclick="openScreenshotPreview('my-courses', 'My Enrolled Courses', 'Course Library & Downloads')" style="cursor: pointer;">
+                <img src="assets/screenshots/light/my-courses.webp" alt="Coursera DL desktop interface showing enrolled courses in light mode" class="screenshot-img-raw screenshot-img-light" width="1920" height="1323" loading="lazy">
+                <img src="assets/screenshots/dark/my-courses.webp" alt="Coursera DL desktop interface showing enrolled courses in dark mode" class="screenshot-img-raw screenshot-img-dark" width="1920" height="1323" loading="lazy">
+              </div>
+            </div>
+
+            <!-- 3. Course Slug DL -->
+            <div class="screenshot-panel" id="panel-course-slug-dl">
+              <div onclick="openScreenshotPreview('course-slug-dl', 'Download by Course Slug', 'Direct URL & Syllabus Discovery')" style="cursor: pointer;">
+                <img src="assets/screenshots/light/course-slug-dl.webp" alt="Coursera DL course slug downloader in light mode" class="screenshot-img-raw screenshot-img-light" width="1920" height="1323" loading="lazy">
+                <img src="assets/screenshots/dark/course-slug-dl.webp" alt="Coursera DL course slug downloader in dark mode" class="screenshot-img-raw screenshot-img-dark" width="1920" height="1323" loading="lazy">
+              </div>
+            </div>
+
+            <!-- 4. Active Downloads & Library -->
+            <div class="screenshot-panel" id="panel-active-downloads">
+              <div onclick="openScreenshotPreview('active-downloads', 'Downloads & Local Library', 'Library Management & Progress')" style="cursor: pointer;">
+                <img src="assets/screenshots/light/active-downloads.webp" alt="Coursera DL active downloads and offline course library in light mode" class="screenshot-img-raw screenshot-img-light" width="1920" height="1323" loading="lazy">
+                <img src="assets/screenshots/dark/active-downloads.webp" alt="Coursera DL active downloads and offline course library in dark mode" class="screenshot-img-raw screenshot-img-dark" width="1920" height="1323" loading="lazy">
+              </div>
+            </div>
+
+            <!-- 5. Settings -->
+            <div class="screenshot-panel" id="panel-settings">
+              <div onclick="openScreenshotPreview('settings', 'Settings & Delay Controls', 'Preferences & Smart Throttling')" style="cursor: pointer;">
+                <img src="assets/screenshots/light/settings.webp" alt="Coursera DL settings and download delay controls in light mode" class="screenshot-img-raw screenshot-img-light" width="1920" height="1323" loading="lazy">
+                <img src="assets/screenshots/dark/settings.webp" alt="Coursera DL settings and download delay controls in dark mode" class="screenshot-img-raw screenshot-img-dark" width="1920" height="1323" loading="lazy">
+              </div>
+            </div>
+
+            <div class="screenshot-hint">
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              <span>Click any screenshot to expand full resolution</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -2222,6 +2345,32 @@
         }
       };
 
+      // Screenshot Showcase Tab Switching
+      window.switchShowcaseTab = function(tabName) {
+        var allTabs = document.querySelectorAll('.showcase-tab-btn');
+        var allPanels = document.querySelectorAll('.screenshot-panel');
+        
+        allTabs.forEach(function(btn) {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-selected', 'false');
+        });
+        
+        allPanels.forEach(function(panel) {
+          panel.classList.remove('active');
+        });
+
+        var activeBtn = document.getElementById('tab-btn-' + tabName);
+        var activePanel = document.getElementById('panel-' + tabName);
+
+        if (activeBtn) {
+          activeBtn.classList.add('active');
+          activeBtn.setAttribute('aria-selected', 'true');
+        }
+        if (activePanel) {
+          activePanel.classList.add('active');
+        }
+      };
+
       // Screenshot Modal Lightbox
       var currentPreviewName = null;
       window.openScreenshotPreview = function(name, title, context) {
@@ -2236,8 +2385,12 @@
         if (modalContext && context) modalContext.textContent = context;
 
         var isDark = document.documentElement.classList.contains('dark');
-        var themeFolder = isDark ? 'dark' : 'light';
-        modalImg.src = 'assets/screenshots/' + themeFolder + '/' + name + '.webp';
+        if (name === 'terminal-install') {
+          modalImg.src = 'assets/screenshots/terminal-install.webp';
+        } else {
+          var themeFolder = isDark ? 'dark' : 'light';
+          modalImg.src = 'assets/screenshots/' + themeFolder + '/' + name + '.webp';
+        }
         modalImg.alt = (title || name) + ' interface preview';
 
         modal.classList.add('open');
@@ -2280,7 +2433,11 @@
         if (currentPreviewName) {
           var modalImg = document.getElementById('modal-img');
           if (modalImg) {
-            modalImg.src = 'assets/screenshots/' + (theme === 'dark' ? 'dark' : 'light') + '/' + currentPreviewName + '.webp';
+            if (currentPreviewName === 'terminal-install') {
+              modalImg.src = 'assets/screenshots/terminal-install.webp';
+            } else {
+              modalImg.src = 'assets/screenshots/' + (theme === 'dark' ? 'dark' : 'light') + '/' + currentPreviewName + '.webp';
+            }
           }
         }
       }
