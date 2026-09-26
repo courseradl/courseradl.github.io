@@ -4,23 +4,43 @@
 
 Coursera DL is a free, fast, and open-source desktop tool designed for personal backup and offline learning preservation.
 
-## Key Features & Authentication
-- **1-Click Direct Coursera Login**: Seamless embedded login window for regular users. Automatically detects and authenticates your `CAUTH` session cookie.
-- **Manual Cookie Login for Power Users**: Power users can optionally export and paste their `CAUTH` session cookie directly.
-- **Privacy & Local Security**: Zero credentials or passwords stored. All cookies remain strictly on your local machine with zero external backend servers. 100% open-source and auditable.
-- **1080p & 720p Video Downloads**: High-speed chunk-based streaming with multi-stream resilience.
-- **Subtitles & PDF Slides**: Downloads multilingual VTT/SRT captions and full lecture slides/notes.
-- **Batch Specialization Discovery**: 1-click batch discovery and downloading for complete programs.
+## Authentication Methods
+1. **1-Click Direct Coursera Login (Regular Users)**:
+   - Click "Login with Coursera" inside the desktop app.
+   - An embedded Coursera web window opens allowing standard sign-in.
+   - Upon authentication, Coursera DL internally captures only the necessary session cookie (`CAUTH`) without requiring manual copying or technical setup.
+2. **Manual Session Cookie (Power Users)**:
+   - Power users can manually extract their `CAUTH` cookie from their browser and paste it into the application settings.
 
-## Docs
+## Privacy & Security Architecture
+- **Zero Credentials Stored**: Passwords and login credentials are never stored, logged, or intercepted.
+- **Zero Remote Backend Servers**: All network traffic communicates directly and solely between the user's local workstation and official Coursera APIs. No telemetry, analytics, or user tokens are sent to third parties.
+- **Encrypted Local Storage**: Session data and tokens remain encrypted strictly on the user's computer.
+- **100% Open Source**: Fully auditable codebase licensed under GNU General Public License v3.0 (GPL-3.0).
 
-- [Overview and User Guide](https://courseradl.github.io/): Complete feature breakdown, security and privacy details, interactive flow, and downloads.
-- [Changelog & Releases](https://courseradl.github.io/changelog.html): Full version history, features, and bug fixes for every release.
-- [GitHub Repository](https://github.com/courseradl/coursera-dl-gui): Source code, issues, release binaries, and contribution guidelines.
-- [Full LLM Details](https://courseradl.github.io/llms-full.txt): Comprehensive extended documentation and technical architecture for LLMs.
+## Key Features
+- **High-Definition Video Downloads**: Download 720p and 1080p MP4 lectures with chunk-based downloading and multi-stream resilience.
+- **Subtitles & Lecture Notes**: Automatically parses and downloads localized subtitles (.vtt and .srt), PDF lecture slides, readings, and assignment assets.
+- **Batch Specialization Discovery**: Discover and batch download nested courses and syllabus modules across complete programs with a single click.
+- **Human-Mimicking Smart Throttling**: Configured with randomized pacing intervals between module downloads to avoid request clustering.
+- **Resume Capability**: Resilient chunk validation to resume interrupted network downloads without re-fetching completed segments.
 
-## Optional
+## Quick Start
+1. Open the Coursera DL desktop application.
+2. Click **"Login with Coursera"** (or paste your `CAUTH` cookie in Settings).
+3. Select enrolled courses from your catalog or paste a course slug.
+4. Choose video quality (720p / 1080p) and target directory to start downloading.
 
-- [Latest Releases](https://github.com/courseradl/coursera-dl-gui/releases/latest): Native installers for macOS (.dmg), Windows (.exe), and Linux (.AppImage / .deb).
+## Documentation & Links
+- [Website & User Guide](https://courseradl.github.io/): Complete interactive overview, step-by-step flow, and FAQ.
+- [Changelog & Releases](https://courseradl.github.io/changelog.html): Version history, new features, and bug fixes for every release.
+- [GitHub Repository](https://github.com/courseradl/coursera-dl-gui): Source code, issues, and contribution guidelines.
+- [Latest Release Binaries](https://github.com/courseradl/coursera-dl-gui/releases/latest): Native installers for macOS (.dmg), Windows (.exe), and Linux (.AppImage / .deb).
 - [License](https://www.gnu.org/licenses/gpl-3.0.html): GNU General Public License v3.0 (GPL-3.0).
 - [Organization](https://github.com/courseradl): Coursera DL Community GitHub organization.
+
+## Development & Build
+- Prerequisites: Node.js (>=18), Rust toolchain (cargo), and pnpm.
+- Clone: `git clone https://github.com/courseradl/coursera-dl-gui.git`
+- Run Dev: `pnpm install && pnpm tauri dev`
+- Build: `pnpm tauri build`

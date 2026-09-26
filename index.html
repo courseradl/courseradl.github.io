@@ -1272,6 +1272,91 @@
       color: var(--muted-foreground);
     }
 
+    /* Mobile Menu Drawer Styles */
+    .btn-mobile-menu {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--foreground);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-mobile-menu:hover {
+      background: var(--muted);
+      border-color: rgba(0, 86, 210, 0.3);
+    }
+    .mobile-menu-backdrop {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 998;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .mobile-menu-backdrop.open {
+      display: block;
+      opacity: 1;
+    }
+    .mobile-menu-drawer {
+      position: fixed;
+      top: 0;
+      right: -280px;
+      width: 280px;
+      height: 100vh;
+      background: var(--card);
+      border-left: 1px solid var(--border);
+      box-shadow: var(--shadow-xl);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      padding: 24px 20px;
+      transition: right 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .mobile-menu-drawer.open {
+      right: 0;
+    }
+    .mobile-menu-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .mobile-menu-links a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      color: var(--foreground);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.15s ease;
+    }
+    .mobile-menu-links a:hover, .mobile-menu-links a.active {
+      background: var(--accent);
+      color: var(--primary);
+    }
+
     @media (max-width: 768px) {
       .footer-top {
         grid-template-columns: 1fr;
@@ -1285,6 +1370,15 @@
       }
       .nav-links {
         display: none;
+      }
+      .btn-mobile-menu {
+        display: inline-flex;
+      }
+      .btn-github span {
+        display: none;
+      }
+      .btn-github {
+        padding: 8px 10px;
       }
     }
   </style>
@@ -1331,10 +1425,50 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
             </svg>
           </button>
+          <!-- Mobile Menu Hamburger Button -->
+          <button type="button" class="btn-mobile-menu" id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open menu" aria-expanded="false">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
   </header>
+
+  <!-- Mobile Menu Backdrop & Drawer -->
+  <div class="mobile-menu-backdrop" id="mobile-backdrop" onclick="toggleMobileMenu(false)"></div>
+  <div class="mobile-menu-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-menu-header">
+      <div style="display:flex; align-items:center; gap:8px; font-weight:700; color:var(--foreground);">
+        <picture>
+          <source srcset="assets/logo-64.webp" type="image/webp">
+          <img src="assets/logo-64.png" alt="Logo" width="26" height="26" style="border-radius:6px;">
+        </picture>
+        <span>Coursera DL</span>
+      </div>
+      <button type="button" class="btn-mobile-menu" onclick="toggleMobileMenu(false)" aria-label="Close menu">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <ul class="mobile-menu-links">
+      <li><a href="#features" onclick="toggleMobileMenu(false)">✨ Features</a></li>
+      <li><a href="#flow" onclick="toggleMobileMenu(false)">📖 How It Works</a></li>
+      <li><a href="#downloads" onclick="toggleMobileMenu(false)">⚙️ Specs</a></li>
+      <li><a href="#faq" onclick="toggleMobileMenu(false)">❓ FAQ</a></li>
+      <li><a href="changelog.html" onclick="toggleMobileMenu(false)">🚀 Changelog</a></li>
+      <li><a href="#troubleshooting" onclick="toggleMobileMenu(false)">🛠️ Troubleshooting</a></li>
+      <li><a href="#development" onclick="toggleMobileMenu(false)">💻 Open Source</a></li>
+    </ul>
+    <div style="margin-top:auto; padding-top:20px; border-top:1px solid var(--border);">
+      <a href="https://github.com/courseradl/coursera-dl-gui" target="_blank" rel="noopener noreferrer" class="btn-github" style="width:100%; justify-content:center;">
+        <svg height="18" width="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+        <span style="display:inline !important;">GitHub Repository</span>
+      </a>
+    </div>
+  </div>
 
   <!-- Hero Section -->
   <main>
@@ -2093,7 +2227,28 @@
             }
           }
         })
-      // Theme Toggle Logic (Matches cf-studio-web)
+      // Mobile Drawer Toggle
+      window.toggleMobileMenu = function(forceState) {
+        var drawer = document.getElementById('mobile-drawer');
+        var backdrop = document.getElementById('mobile-backdrop');
+        var btn = document.getElementById('mobile-menu-btn');
+        if (!drawer || !backdrop) return;
+
+        var shouldOpen = typeof forceState === 'boolean' ? forceState : !drawer.classList.contains('open');
+        if (shouldOpen) {
+          drawer.classList.add('open');
+          backdrop.classList.add('open');
+          if (btn) btn.setAttribute('aria-expanded', 'true');
+          document.body.style.overflow = 'hidden';
+        } else {
+          drawer.classList.remove('open');
+          backdrop.classList.remove('open');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        }
+      };
+
+      // Theme Toggle Logic (Matches cf-studio-web) - Light theme by default
       function updateThemeUI(theme) {
         var sunIcon = document.getElementById('theme-icon-sun');
         var moonIcon = document.getElementById('theme-icon-moon');
@@ -2117,14 +2272,14 @@
         updateThemeUI(newTheme);
       };
 
-      // Initialize theme on load
+      // Initialize theme on load (Light theme default)
       (function initTheme() {
         var savedTheme = null;
         try {
           savedTheme = localStorage.getItem('theme');
         } catch (e) {}
         if (!savedTheme) {
-          savedTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          savedTheme = 'light';
         }
         updateThemeUI(savedTheme);
       })();
